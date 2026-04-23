@@ -10,7 +10,7 @@ export default abstract class Entity<T, TProps extends EntityProps> {
 
     constructor(props: TProps) {
         this.props = props
-        this.id = this.id = props.id ? new Id(props.id) : Id.generate()
+        this.id = props.id ? new Id(props.id) : Id.generate()
     }
 
     equals(otherEntity: Entity<T, TProps>) {
@@ -21,13 +21,11 @@ export default abstract class Entity<T, TProps extends EntityProps> {
         return !this.equals(otherEntity)
     }
 
-    // Aceita passar novos argumentos diferentes com a propriedade "other"
-    clone(newProps?: TProps, ...other: any): T {
+    clone(newProps?: Partial<TProps>): T {
         return new (this.constructor as any)({ // Forma diferente de chamar o construtor do filho sem especificar tipos
             ...this.props,
             ...newProps,
-            ...other,
-            id: this.id.value
+            id: newProps?.id ?? this.id.value
         })
     }
 }
