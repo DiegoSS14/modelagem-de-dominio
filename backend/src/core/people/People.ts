@@ -8,7 +8,7 @@ export interface PeopleProps {
     cpf: string
 }
 
-export default class People extends Entity<PeopleProps>{
+export default class People extends Entity<People, PeopleProps>{
     readonly name: PeopleName
     readonly cpf: CPF
 
