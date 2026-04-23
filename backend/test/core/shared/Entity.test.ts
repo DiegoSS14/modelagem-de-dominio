@@ -33,5 +33,6 @@ test('Deve clonar uma entidade com nome diferente', ()=>{
     const t1 = new Test({name: 'teste 1', idade: 16})
     const t2 = t1.clone({name: 'Maria Silva'})
     expect('Maria Silva').toEqual(t2.props.name)
+    expect(16).toEqual(t2.props.idade)
 })
 
