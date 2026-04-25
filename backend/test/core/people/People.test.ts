@@ -1,5 +1,4 @@
 import Errors from "@/core/constants/Errors"
-import People from "@/core/people/People"
 import Id from "@/core/shared/Id"
 import PeopleBuilder from "../../data/PeopleBuilder"
 
