@@ -3,9 +3,9 @@ import Entity from "../shared/Entity";
 import PeopleName from "../shared/PeopleName";
 
 export interface PeopleProps {
-    id?: string
-    name: string
-    cpf: string
+    id?: string | undefined
+    name?: string | undefined
+    cpf?: string | undefined
 }
 
 export default class People extends Entity<People, PeopleProps>{

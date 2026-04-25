@@ -5,6 +5,10 @@ test('Deve lançar erro ao cadastrar nome vazio', ()=>{
     expect(() => new PeopleName('')).toThrow(Errors.EMPTY_NAME)
 })
 
+test('Deve lançar erro ao cadastrar nome undefined', ()=>{
+    expect(() => new PeopleName(undefined)).toThrow(Errors.EMPTY_NAME)
+})
+
 test('Deve criar um nome corretamente', () => {
     const name = 'Diego Sousa'
     expect(new PeopleName(name).fullName).toBe(name)

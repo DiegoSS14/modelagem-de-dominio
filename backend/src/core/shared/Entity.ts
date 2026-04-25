@@ -1,7 +1,7 @@
 import Id from "./Id";
 
 export interface EntityProps {
-    id?: string
+    id?: string | undefined
 }
 
 export default abstract class Entity<T, TProps extends EntityProps> {

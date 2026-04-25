@@ -4,8 +4,8 @@ import Validator from "../utils/Validator"
 export default class{
     private name: string
 
-    constructor(name: string) {
-        this.name = name.trim()
+    constructor(name?: string) {
+        this.name = (name ?? '').trim()
         const nameParts = this.name.split(/\s+/)
 
         let errors = Validator.combine(

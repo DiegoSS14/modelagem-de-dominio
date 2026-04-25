@@ -23,6 +23,8 @@
     "typescript": "^5.9.3"
   },
   "dependencies": {
+    "@ngneat/falso": "^8.0.2",
+    "cpf_and_cnpj-generator": "^1.5.5",
     "uuid": "^9.0.1"
   }
 }

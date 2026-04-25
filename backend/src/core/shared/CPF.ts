@@ -4,9 +4,10 @@ import Errors from "../constants/Errors"
 export default class CPF{
     readonly value: string
 
-    constructor(value: string) {
-        this.value = value.replace(/\D/g, '')
-        if(!CPF.verify(value)) throw Errors.INVALID_CPF
+    constructor(value?: string) {
+        const safeValue = value ?? ''
+        this.value = safeValue.replace(/\D/g, '')
+        if(!CPF.verify(safeValue)) throw Errors.INVALID_CPF
     }
 
     get formatCPF() {
@@ -17,8 +18,8 @@ export default class CPF{
         return this.value.slice(9)
     }
 
-    static verify(cpf: string): boolean {
-        const onlyDigits = cpf.replace(/\D/g, '')
+    static verify(cpf?: string): boolean {
+        const onlyDigits = (cpf ?? '').replace(/\D/g, '')
         if (onlyDigits.length !== 11) return false
 
         const dv1 = this.verifyDv(onlyDigits.slice(0, 9)) === Number(onlyDigits[9])

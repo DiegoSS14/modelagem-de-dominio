@@ -12,6 +12,10 @@ test('Deve validar um CPF corretamente', () => {
     expect(CPF.verify(baseCpf)).toBeTruthy()
 })
 
+test('Deve retornar false ao validar CPF undefined', () => {
+    expect(CPF.verify(undefined)).toBeFalsy()
+})
+
 test('Deve reotnar erro ao digitar um cpf com dígito verificador inválido', () => {
     expect(()=>new CPF('99974602008')).toThrow(Errors.INVALID_CPF)
 })
@@ -23,6 +27,14 @@ test('Deve retornar o dígito verificador do CPF', () => {
 
 test('Deve retornar erro ao tentar criar um CPF inválido', () => {
     expect(() => new CPF('02')).toThrow(Errors.INVALID_CPF)
+})
+
+test('Deve retornar erro ao tentar criar um CPF undefined', () => {
+    expect(() => new CPF(undefined)).toThrow(Errors.INVALID_CPF)
+})
+
+test('Deve retornar erro ao tentar criar um CPF vazio', () => {
+    expect(() => new CPF('')).toThrow(Errors.INVALID_CPF)
 })
 
 test('Validar os últimos dígitos de um CPF', () => {
